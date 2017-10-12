@@ -6,10 +6,14 @@ import { AppService } from 'app/app-service.service';
 import { Observable } from 'rxjs/Observable';
 import { Http, RequestOptions, Headers } from '@angular/http';
 
+// for searching position pipe 
+import { PositionPipe } from './position.pipe';
+import { NamePipe } from './name.pipe';
+
 @Component({
   selector: 'app-nba-home',
   templateUrl: './nba-home.component.html',
-  styleUrls: ['./nba-home.component.css']
+  styleUrls: ['./nba-home.component.css'],
 })
 export class NBAHomeComponent implements OnInit {
 

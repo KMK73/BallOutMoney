@@ -22,6 +22,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { NBAHomeComponent } from 'app/home-new/nba-home.component';
 import { AppService } from 'app/app-service.service';
+import { PositionPipe } from 'app/home-new/position.pipe';
+import { NamePipe } from 'app/home-new/name.pipe';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,9 @@ import { AppService } from 'app/app-service.service';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent
-
+    UpgradeComponent,
+    PositionPipe,
+    NamePipe
   ],
   imports: [
     BrowserModule,
