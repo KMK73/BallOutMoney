@@ -1,11 +1,24 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div *ngIf="sportsData" class="col-md-12">
+            <div class="col-md-12">
+                <select type="" [(ngModel)]="teamSelected" (ngModelChange)="getTeamSelected()">
+                        <option *ngFor="let team of teamsList" [ngValue]="team.slug">{{team.name}} {{team.nickname}}</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 padding-top">
+                <div *ngIf="!teamData" class="">
+                    <h3>Choose a Team to Display Roster</h3>
+                </div>
+            </div>
+            <div *ngIf="teamData" class="col-md-12 padding-top">
                     <div class="card">
                             <div class="header">
-                                <h4 class="title">Golden State Warrior </h4>
-                                <p class="category">Salary by Team</p>
+                                <h4 class="title">{{teamData.teams[0].name}} {{teamData.teams[0].nickname}} </h4>
+                                <p class="category">Current Roster updated {{ teamData.teams[0].updated_at | date : "fullDate" }}</p>
                             </div>
                     <!-- <p>{{ sportsData?.players }}</p> -->
                     <table class="table table-hover table-striped">
@@ -13,11 +26,11 @@
                                 <tr>
                                     <th>Name</th> 
                                     <th>Position</th>
-                                    <th>Salary</th>  
+                                    <th>Yearly Salary</th>  
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let player of sportsData.players">
+                                <tr *ngFor="let player of teamData.players">
                                     <td> {{ player.name }}</td>
                                     <td> {{ player.position_name }}</td>
                                     <td> {{ player.humanized_salary }}</td>

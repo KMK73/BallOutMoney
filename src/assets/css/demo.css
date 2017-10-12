@@ -11,6 +11,10 @@
         left: 0px;
         position: absolute;
     }
+    .logo-icon {
+        font-size: 30px;
+        vertical-align: middle;
+    }
 }
 
 .all-icons [class*="pe-"]{

@@ -9,30 +9,45 @@ export class AppService {
 
   baseUrl = 'https://api.stattleship.com/basketball/nba';
 
+   headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': '6a01ada5ebb0fe13029b18778cf7e51c',
+    'Accept': 'application/vnd.stattleship.com; version=1',
+   });
+   options = new RequestOptions({ headers: this.headers });
 
   constructor(private http: Http) { }
 
-  getTeamData(): Observable<any> {
+    /* 
+      Get all  teams
+      returns all nba teams
+    */
+    getTeams(): Observable<any> {
+      
+          return this.http.get(this.baseUrl + '/teams', this.options)
+            .map((res) => {
+              console.log('teams ', res);
+              return res.json();
+            })
+            .catch(this.handleError);
+        }
 
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': '6a01ada5ebb0fe13029b18778cf7e51c',
-      'Accept': 'application/vnd.stattleship.com; version=1',
-     });
-    const options = new RequestOptions({ headers: headers });
+  /* 
+    Get a specific teams roster data 
+    params team slug 
+    returns team full data with salary 
+    */
+  getTeamData(teamSlug: string): Observable<any> {
 
-    return this.http.get(this.baseUrl + '/players?team_id=nba-gs', options)
+    return this.http.get(this.baseUrl + '/players?team_id=' + teamSlug, this.options)
       .map((res) => {
-        console.log('service ', res);
+        console.log('team data from service ', res);
         return res.json();
       })
       .catch(this.handleError);
   }
 
-  // private extractData(res: Response){
-  //   const body = res.json();
-  //   return body.data || {};
-  // }
+
 
   private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
