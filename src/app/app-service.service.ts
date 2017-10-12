@@ -24,7 +24,7 @@ export class AppService {
     return this.http.get(this.baseUrl + '/players?team_id=nba-gs', options)
       .map((res) => {
         console.log('service ', res);
-        return res.json().body; // using return res.json() will throw error
+        return res.json();
       })
       .catch(this.handleError);
   }

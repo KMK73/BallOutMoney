@@ -79,35 +79,36 @@ export class NBAHomeComponent implements OnInit {
       ];
 
       // call sports data api 
-      // this.appService.getTeamData()
-      // .subscribe(
-      //   (data) => {
-      //         this.sportsData = data;
-      //         console.log('data', data); 
-      //         console.log('sports data', this.sportsData);  //the value will be set here properly
-      //   },
-      //   (error) => {
-      //         console.log(error); 
-      //   });
-
-      const headers = new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': '6a01ada5ebb0fe13029b18778cf7e51c',
-        'Accept': 'application/vnd.stattleship.com; version=1',
-       });
-      const options = new RequestOptions({ headers: headers });
-  
-       this.http.get(this.baseUrl + '/players?team_id=nba-gs', options)
-       .subscribe(
+      this.appService.getTeamData()
+      .subscribe(
         (data) => {
-                  console.log(data.json());
-                  this.sportsData = data.json();
-                  console.log('data', data.json()); 
-                  console.log('sports data', this.sportsData);  //the value will be set here properly
-            },
-            (error) => {
-                  console.log(error); 
-          });
+          console.log(data);
+          this.sportsData = data;
+          console.log('data', data); 
+          console.log('sports data', this.sportsData); 
+        },
+        (error) => {
+              console.log(error); 
+        });
+
+      // const headers = new Headers({
+      //   'Content-Type': 'application/json',
+      //   'Authorization': '6a01ada5ebb0fe13029b18778cf7e51c',
+      //   'Accept': 'application/vnd.stattleship.com; version=1',
+      //  });
+      // const options = new RequestOptions({ headers: headers });
+  
+      //  this.http.get(this.baseUrl + '/players?team_id=nba-gs', options)
+      //  .subscribe(
+      //   (data) => {
+      //             console.log(data.json());
+      //             this.sportsData = data.json();
+      //             console.log('data', data.json()); 
+      //             console.log('sports data', this.sportsData);  //the value will be set here properly
+      //       },
+      //       (error) => {
+      //             console.log(error); 
+      //     });
         
 
     }
