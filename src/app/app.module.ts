@@ -20,11 +20,14 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { NBAHomeComponent } from 'app/home-new/nba-home.component';
+import { AppService } from 'app/app-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NBAHomeComponent,
     UserComponent,
     TablesComponent,
     TypographyComponent,
@@ -43,9 +46,9 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     SidebarModule,
     RouterModule,
     AppRoutingModule,
-    LbdModule
+    LbdModule,
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
