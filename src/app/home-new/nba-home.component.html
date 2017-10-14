@@ -35,14 +35,29 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th class="pointer" (click)="sort('name')">
+                                    Name
+                                    <i class="fa" [ngClass]="{
+                                            'fa-sort': column != 'name', 
+                                            'fa-sort-asc': (column == 'name' && isDesc), 
+                                            'fa-sort-desc': (column == 'name' && !isDesc) }" 
+                                        aria-hidden="true"> </i>
+                                </th>
                                 <th>Position</th>
-                                <th>Yearly Salary</th>
+                                <!-- bind the sort class to isDesc and salary --> 
+                                <th class="pointer" (click)="sort('salary')">
+                                        Yearly Salary 
+                                        <i class="fa" [ngClass]="{
+                                                'fa-sort': column != 'salary', 
+                                                'fa-sort-asc': (column == 'salary' && isDesc), 
+                                                'fa-sort-desc': (column == 'salary' && !isDesc) }" 
+                                            aria-hidden="true"> </i>
+                                    </th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- searchable position -->
-                            <tr *ngFor="let player of teamData.players | position: searchText | name: searchName">
+                            <tr *ngFor="let player of teamData.players | position: searchText | name: searchName | orderBy: {property: column, direction: direction}">
                                 <td> {{ player.name }}</td>
                                 <td> {{ player.position_name }}</td>
                                 <td> {{ player.humanized_salary }}</td>

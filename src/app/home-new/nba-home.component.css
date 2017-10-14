@@ -1,3 +1,8 @@
 .padding-top {
     padding-top: 20px; 
 }
+
+/* // CSS class to change the mouse cursor in hand */
+.pointer{
+    cursor: pointer;
+}

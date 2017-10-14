@@ -24,6 +24,7 @@ import { NBAHomeComponent } from 'app/home-new/nba-home.component';
 import { AppService } from 'app/app-service.service';
 import { PositionPipe } from 'app/home-new/position.pipe';
 import { NamePipe } from 'app/home-new/name.pipe';
+import { OrderByPipe } from 'app/home-new/orderBy.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NamePipe } from 'app/home-new/name.pipe';
     NotificationsComponent,
     UpgradeComponent,
     PositionPipe,
-    NamePipe
+    NamePipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

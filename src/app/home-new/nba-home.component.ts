@@ -9,6 +9,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 // for searching position pipe 
 import { PositionPipe } from './position.pipe';
 import { NamePipe } from './name.pipe';
+import { OrderByPipe } from './orderBy.pipe';  
 
 @Component({
   selector: 'app-nba-home',
@@ -22,11 +23,13 @@ export class NBAHomeComponent implements OnInit {
     public teamSelected = 'nba-gs'; 
 
     baseUrl = 'https://api.stattleship.com/basketball/nba';
+    isDesc: boolean = true;
+    column: string = 'name';
+    direction: number;
+  
+    constructor( private appService: AppService, private http: Http) { }
 
-  constructor( private appService: AppService, private http: Http) { }
-
-
-  ngOnInit() {
+    ngOnInit() {
 
       // get list of all teams for dropdown
       this.appService.getTeams()
@@ -60,4 +63,14 @@ export class NBAHomeComponent implements OnInit {
         });
 
     }
+
+    // sort the columens of the table 
+    sort(property) {
+      console.log('property', property); 
+      this.isDesc = !this.isDesc; //change the direction
+      this.column = property;
+      console.log('column', this.column); 
+      this.direction = this.isDesc ? 1 : -1;
+    };
+
 }
