@@ -1,13 +1,26 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <select type="" [(ngModel)]="teamSelected" (ngModelChange)="getTeamSelected()">
                         <option *ngFor="let team of teamsList" [ngValue]="team.slug">{{team.name}} {{team.nickname}}</option>
                 </select>
             </div>
-
+            <div class="col-md-6">
+            <div style="width: 100%;">
+                    <canvas
+                        baseChart
+                        [chartType]="'bar'"
+                        [datasets]="chartData"
+                        [labels]="chartLabels"
+                        [options]="chartOptions"
+                        [legend]="true"
+                        (chartClick)="onChartClick($event)">
+                    </canvas>
+                  </div>
+            </div>
         </div>
+
         <div class="row">
             <div class="col-md-12 padding-top">
                 <div *ngIf="!teamData" class="">
@@ -18,20 +31,27 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">{{teamData.teams[0].name}} {{teamData.teams[0].nickname}} </h4>
+                        <h4>Total Team Salary: ${{teamSalary | number}}</h4>
                         <p class="category">Current Roster updated {{ teamData.teams[0].updated_at | date : "fullDate" }}</p>
                     </div>
                     <!-- searh by name -->
-                    <div class="form-group">
-                        <div class="col-xs-12 col-md-4">
+                    <div class="form-group col-xs-12">
+                        <div class="col-xs-12 col-md-4 margin">
                             <input type="text" [(ngModel)]="searchName" class="form-control" placeholder="Search By Name" />
                         </div>
                   
                     <!-- search position -->
                     
-                        <div class="col-xs-12 col-md-4">
+                        <div class="col-xs-12 col-md-4 margin">
                             <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search By Position" />
                         </div>
+                       
+                        <div class="col-xs-12 col-md-4 margin">
+                                <button type="button" class="btn btn-outline-primary" (click)="calculateTeamAvgPoints(teamSeasonData)">Calculate Avg Points</button>                            
+                        </div>
                     </div>
+
+
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>

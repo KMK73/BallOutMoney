@@ -1,0 +1,30 @@
+$red: #FB404B;
+.padding-top {
+    padding-top: 20px; 
+}
+
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
+  }
+select {
+    background: $red; 
+    opacity: 0.5;
+    height: 45px;
+    min-width: 200px;
+    color: white;
+    border: 1px solid $red;
+}
+
+/* // CSS class to change the mouse cursor in hand */
+.pointer{
+    cursor: pointer;
+}
+
+.form-group {
+    .margin {
+        margin: 20px 0; 
+    }
+}

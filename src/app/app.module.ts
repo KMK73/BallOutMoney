@@ -25,6 +25,8 @@ import { AppService } from 'app/app-service.service';
 import { PositionPipe } from 'app/home-new/position.pipe';
 import { NamePipe } from 'app/home-new/name.pipe';
 import { OrderByPipe } from 'app/home-new/orderBy.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { OrderByPipe } from 'app/home-new/orderBy.pipe';
     RouterModule,
     AppRoutingModule,
     LbdModule,
+    NgbModule.forRoot(),
+    ChartsModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

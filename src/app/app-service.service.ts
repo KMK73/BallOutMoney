@@ -47,6 +47,21 @@ export class AppService {
       .catch(this.handleError);
   }
 
+  /*
+    Get team season stats 
+  */
+  getTeamSeasonData(teamSlug: string): Observable<any> {
+    
+        return this.http.get(this.baseUrl + '/team_season_stats?team_id=' + teamSlug + 
+        '&season_id=nba-2016-2017&interval_type=regularseason', this.options)
+          .map((res) => {
+            console.log('team season data from service ', res);
+            return res.json();
+          })
+          .catch(this.handleError);
+    }
+    
+
 
 
   private handleError (error: Response | any) {
