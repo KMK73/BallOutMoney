@@ -1,0 +1,26 @@
+.card {
+    display: inline-block;
+}
+h4  {
+    font-weight: 600; 
+    color: #FB404B;
+}
+h5 {
+    font-weight:  600; 
+}
+.img-bg {
+    background-image: url('../../assets/img/sidebar-4.jpg');
+    min-height: 300px; 
+    color: white; 
+
+    border-radius: 4px 0 0 4px;
+    .avatar {
+        width: 124px;
+        height: 124px;
+        border: 5px solid #FFFFFF;
+        position: relative;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+}

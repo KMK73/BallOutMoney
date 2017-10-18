@@ -12,16 +12,18 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { NBAHomeComponent } from 'app/home-new/nba-home.component';
+import { AboutComponent } from 'app/about/about.component';
 
 const routes: Routes =[
     { path: 'dashboard',      component: NBAHomeComponent },
-    { path: 'user',           component: UserComponent },
-    { path: 'table',          component: TablesComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'about', component: AboutComponent },
+    // { path: 'user',           component: UserComponent },
+    // { path: 'table',          component: TablesComponent },
+    // { path: 'typography',     component: TypographyComponent },
+    // { path: 'icons',          component: IconsComponent },
+    // { path: 'maps',           component: MapsComponent },
+    // { path: 'notifications',  component: NotificationsComponent },
+    // { path: 'upgrade',        component: UpgradeComponent },
       { path: '',          redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 

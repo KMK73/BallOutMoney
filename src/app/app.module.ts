@@ -27,6 +27,7 @@ import { NamePipe } from 'app/home-new/name.pipe';
 import { OrderByPipe } from 'app/home-new/orderBy.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ChartsModule } from 'ng2-charts';
     UpgradeComponent,
     PositionPipe,
     NamePipe,
-    OrderByPipe
+    OrderByPipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
